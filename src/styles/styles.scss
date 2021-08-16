@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #3F3F3F;
+    background: rgba(255, 254, 251, 0.8);
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 32px 32px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+@mixin flexSpace {
+    display: flex;
+    justify-content: space-between;
+}
+
+$backgroundColor: #FFFEFB;
+$borderRadius: 4px;
+$transparentText: #B4B4B4;
+
+@mixin cardStyle {
+    background-color: $backgroundColor;
+    border-radius: $borderRadius;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+
+
+/*header*/
+
+.header {
+    @include flexSpace;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.header__h1 {
+    font-size: 28px;
+}
+
+.header__div {
+    padding: 10px 16px;
+    background-color: $backgroundColor;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    color: $transparentText;
+    font-size: 12px;
+}
+
+
+/*main*/
+
+.main {
+    @include flexSpace;
+    align-items: flex-start;
+}
+
+.main__form {
+    width: 23%;
+    min-width: 332px;
+    min-height: 440px;
+    @include cardStyle;
+    padding: 24px;
+    margin-right: 16px;
+}
+
+.main__form-p {
+    font-size: 10px;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+}
+
+.main__input {
+    height: 36px;
+    width: 100%;
+    background: $backgroundColor;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: $borderRadius;
+    border: none;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    color: #B4B4B4;
+
+    &:focus {
+        outline: none;
+        border: 2px solid #B4B4B4;
+    }
+
+    &::placeholder {
+        color: $transparentText;
+        font-size: 12px;
+    }
+}
+
+.main__input--margin {
+    margin-bottom: 24px;
+}
+
+.main__input--description {
+    height: 108px;
+
+    &::placeholder {
+        transform: translateY(-35px);
+    }
+}
+
+.main__button {
+    width: 100%;
+    color: $transparentText;
+    background: #EEEEEE;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    transition: 0.3s;
+    
+    &:hover, &:focus {
+        outline: none;
+        box-shadow: 0px 6px 21px 3px rgba(34, 60, 80, 0.2);
+    }
+}
+
+.main__div-container {
+    width: 76%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main__card {
+    max-width: 332px;
+    height: 423px;
+    @include cardStyle;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: 0.3s;
+
+    &:focus, &:hover {
+        outline: none;
+        box-shadow: 0px 0px 20px 6px rgba(34, 60, 80, 0.2);
+    }
+}
+
+.main__card-container {
+    height: 223px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main__description {
+    padding: 11px 5px 0 16px;
+}
+
+.main__h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.main__p-description {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.main__p {
+    padding: 0 0 27px 16px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+
+    .header__h1 {
+        margin-bottom: 20px;
+    }
+    
+    .main, .header {
+        flex-direction: column;
+    }
+
+    .main__form {
+        margin: 0 auto 30px;
+    }
+
+    .main__div-container {
+        width: 90%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+}
